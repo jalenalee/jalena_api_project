@@ -47,7 +47,7 @@ Address.create([
     province: 'TX',
     country: 'US',
     restaurant_id: @tasty_tacos.id
-  }
+  },
   {
     street_name: '3667 Las Vegas Blvd S',
     city: 'Las Vegas',
@@ -55,7 +55,7 @@ Address.create([
     country: 'US',
     phone: '(702) 463-0259',
     restaurant_id: @perfect_pasta.id
-  }
+  },
   {
     street_name: '3204 Seawall Blvd',
     city: 'Galveston',
