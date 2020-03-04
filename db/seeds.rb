@@ -6,13 +6,6 @@ Owner.delete_all
 Restaurant.delete_all
 Review.delete_all
 
-# Restaurant creation 
-@super_sushi = Restaurant.create(name: 'Super Sushi', specialty: 'Japanese', owner_id:@emma.id)
-@bomb_bbq = Restaurant.create(name: 'Bomb BBQ', specialty: 'Southern', owner_id:@sally.id)
-@tasty_tacos = Restaurant.create(name: 'Tasty Tacos', specialty: 'Mexican', owner_id:@lola.id)
-@perfect_pasta = Restaurant.create(name: 'Perfect Pasta', specialty: 'Italian', owner_id:@dill.id)
-@notable_noodles = Restaurant.create(name: 'Notable Noodles', specialty: 'Asian', owner_id:@brad.id)
-
 # Owner creation 
 @emma = Owner.create(name: 'Emma')
 @lola = Owner.create(name: 'Lola')
@@ -20,14 +13,17 @@ Review.delete_all
 @dill = Owner.create(name: 'Dill')
 @sally = Owner.create(name: "Sally")
 
+# Restaurant creation 
+@super_sushi = Restaurant.create(name: 'Super Sushi', specialty: 'Japanese', owner_id:@emma.id)
+@bomb_bbq = Restaurant.create(name: 'Bomb BBQ', specialty: 'Southern', owner_id:@sally.id)
+@tasty_tacos = Restaurant.create(name: 'Tasty Tacos', specialty: 'Mexican', owner_id:@lola.id)
+@perfect_pasta = Restaurant.create(name: 'Perfect Pasta', specialty: 'Italian', owner_id:@dill.id)
+@notable_noodles = Restaurant.create(name: 'Notable Noodles', specialty: 'Asian', owner_id:@brad.id)
+
 # Author creation 
-@jalena = User.create(name: 'Jalena')
-@johnny_appleseed = User.create(name: 'Johnny')
-<<<<<<< HEAD
-@chad = User.create(name: 'Chad')
-=======
-@chad = User.create(name: 'Chad') 
->>>>>>> 7e7a8aa8f88e330b99e741ad4e0b1c10dd7384ae
+@jalena = Author.create(name: 'Jalena')
+@johnny_appleseed = Author.create(name: 'Johnny')
+@chad = Author.create(name: 'Chad')
 
 # Address creation 
 Address.create([
@@ -57,7 +53,7 @@ Address.create([
     city: 'Las Vegas',
     province: 'NV',
     country: 'US',
-    phone: '(702) 463-0259',
+
     restaurant_id: @perfect_pasta.id
   },
   {
@@ -70,13 +66,8 @@ Address.create([
   ]) 
 
 # Review creation (not sure if this is right)
-restaurants.each do |r|
-  10.times do
-    r.reviews << Review.create({
-      title: Faker::Company.name,
-      content: Faker::CheesyLingo.paragraph,
-      date: Faker::Number.number(3).to_i.day
-      # author_id: people.sample // not sure if this is right 
-    })
-  end
-end 
+Review.create({
+  title: "best Bakery",
+  content: "here is some review on something",
+  date: DateTime.now(), 
+  author_id: @jalena.id}) 
