@@ -4,12 +4,9 @@ class Api::V1::ReviewsController < ApplicationController
   end
 
   def show
-    # @title = @review.title
-    # @content = @review.content 
-    # @date = @review.date
-    # @authors = Authors.all.map{ |author| [author.name, author_id]}
+    @review = Review.includes(:restaurant_reviews, :restaurant).all
+    render json: @review
   end
-
 
   def create
     # @review = Review.new(review_params)
