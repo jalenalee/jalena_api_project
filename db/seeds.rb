@@ -23,7 +23,11 @@ Review.delete_all
 # Author creation 
 @jalena = User.create(name: 'Jalena')
 @johnny_appleseed = User.create(name: 'Johnny')
+<<<<<<< HEAD
 @chad = User.create(name: 'Chad')
+=======
+@chad = User.create(name: 'Chad') 
+>>>>>>> 7e7a8aa8f88e330b99e741ad4e0b1c10dd7384ae
 
 # Address creation 
 Address.create([
