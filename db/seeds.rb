@@ -66,6 +66,7 @@ Address.create([
   ]) 
 
 # Review creation (not sure if this is right)
+# Add in restaurant id
 Review.create({
   title: "best Bakery",
   content: "here is some review on something",
