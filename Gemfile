@@ -57,3 +57,4 @@ gem 'shopify-cloud', source: 'https://packages.shopify.io/shopify/gems'
 
 
 gem 'faker', '~> 2.10', '>= 2.10.2'
+gem 'active_model_serializers'
