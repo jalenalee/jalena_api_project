@@ -6,5 +6,5 @@ class Restaurant < ApplicationRecord
 
   validates :name, presence: true 
   validates :specialty, presence: true 
-  validates :owner_id, presence: true, uniqueness: true
+  validates :owner_id, presence: true
 end 
