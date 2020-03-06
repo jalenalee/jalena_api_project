@@ -4,10 +4,10 @@ one:
   title: MyString
   content: MyText
   date: 2020-03-02 11:38:59
-  author_id: 1
+  author: one
 
 two:
   title: MyString
   content: MyText
   date: 2020-03-02 11:38:59
-  author_id: 1
+  author: two
