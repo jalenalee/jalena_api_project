@@ -47,6 +47,7 @@ Review.delete_all
 Address.create([
   {
     street_name: 'Jalan M Husni Thamrin 1',
+    number: '1',
     city: 'Jakarta Pusat',
     province: 'Daerah Khusus Ibukota Jakarta',
     country: 'id',
@@ -55,6 +56,7 @@ Address.create([
   {
     street_name: 'Prinsengracht 267',
     city: 'Amsterdam',
+    number: '2',
     province: 'Noord-Holland',
     country: 'nl',
     restaurant_id: @bomb_bbq.id
@@ -62,21 +64,23 @@ Address.create([
   {
     street_name: '1400 S Congress Ave',
     city: 'Austin',
+    number: '3',
     province: 'TX',
     country: 'US',
     restaurant_id: @tasty_tacos.id
   },
   {
     street_name: '3667 Las Vegas Blvd S',
+    number: '4',
     city: 'Las Vegas',
     province: 'NV',
     country: 'US',
-
     restaurant_id: @perfect_pasta.id
   },
   {
     street_name: '3204 Seawall Blvd',
     city: 'Galveston',
+    number: '5',
     province: 'TX',
     country: 'US',
     restaurant_id: @notable_noodles.id
@@ -84,6 +88,7 @@ Address.create([
   {
     street_name: 'Skylon Tower',
     city: 'Niagara Falls',
+    number: '61',
     province: 'ON',
     country: 'CA',
     restaurant_id: @mighty_mexican.id
@@ -91,6 +96,7 @@ Address.create([
   {
     street_name: 'Dinosaur Bar-B-Que',
     city: 'Syracuse',
+    number: '7',
     province: 'NY',
     country: 'US',
     restaurant_id: @hello_halal.id
@@ -99,6 +105,7 @@ Address.create([
     street_name: 'Shady Maple Smorgasbord',
     city: 'East Earl',
     province: 'PA',
+    number: '8',
     country: 'US',
     restaurant_id: @pink_pizza.id
   },
@@ -106,6 +113,7 @@ Address.create([
     street_name: 'The Ledbury',
     city: 'Notting Hill',
     province: 'London',
+    number: '9',
     country: 'GB',
     restaurant_id: @gongfu_bao.id
   },
@@ -113,6 +121,7 @@ Address.create([
     street_name: 'Hill Country',
     city: 'New York',
     province: 'NY',
+    number: '10',
     country: 'US',
     restaurant_id: @panda_express.id
   },
@@ -120,6 +129,7 @@ Address.create([
     street_name: 'Founding Farmers',
     city: 'Washington',
     province: 'DC',
+    number: '11',
     country: 'US',
     restaurant_id: @coco.id
   },
@@ -127,6 +137,7 @@ Address.create([
     street_name: 'Andina',
     city: 'Portland',
     province: 'OR',
+    number: '12',
     country: 'OR',
     restaurant_id: @chatime.id 
   }

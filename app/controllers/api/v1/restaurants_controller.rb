@@ -31,7 +31,7 @@ class Api::V1::RestaurantsController < ApplicationController
       end
   end 
 
-  def destory 
+  def destroy 
     @restaurant = Restaurant.find(params[:id])
     @restaurant.destroy!
 
