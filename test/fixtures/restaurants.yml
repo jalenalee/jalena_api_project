@@ -3,7 +3,9 @@
 one:
   name: MyString
   specialty: MyString
+  owner: one 
 
 two:
   name: MyString
   specialty: MyString
+  owner: two 

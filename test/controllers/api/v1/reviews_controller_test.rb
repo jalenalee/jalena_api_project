@@ -16,18 +16,41 @@ class Api::V1::ReviewsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end 
 
-  test "should get create" do 
-    get api_v1_reviews_path(@review)
+  test "should create review" do 
+    # get api_v1_reviews_path(@review)
+    # assert_response :success
+
+    assert_difference('Review.count', 1) do
+      post api_v1_reviews_path,
+        params: {
+          review: {
+            title: @review.title,
+            content: @review.content,
+            date: @review.date,
+            author_id: @review.author_id
+          }
+        }
+      end 
+      assert_response :success
+  end 
+
+  test "should destroy review" do 
+    assert_difference('Review.count', -1) do
+    delete api_v1_review_path(@review)
+    end 
     assert_response :success
   end 
 
-  test "should get destroy" do 
-    get api_v1_review_path(@review)
-    assert_response :success
-  end 
-
-  test "should get update" do 
-    get api_v1_review_path(@review)
+  test "should update review" do 
+    patch api_v1_review_path(@review),
+    params: {
+      review: {
+        title: @review.title,
+        content: @review.content,
+        date: @review.date,
+        author_id: @review.author_id
+      }
+    }
     assert_response :success
   end 
 
