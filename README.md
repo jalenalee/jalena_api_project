@@ -1,11 +1,23 @@
 # Jalena API Project
 
-This README documents how my API works!
+This is a guide to my restaurant review API! This API allows you to discover restaurants with their reviews, the review's author, the owner, the address of the restaurant, and more! 
 
-Things you may want to cover:
+It has the following models:
+- A restaurant model that stores the name of the restaurant and it's specialty
+- An address model that has the street_name, number, city, country, province, restaurant_id
+- An author model that has the reviewer's name
+- An owner model for the restaurant's owner
+- A restaurant_reviews model that is used for through associations
+- The review model has a title, content, date, and author_id
+- There is review and restaurant controller
+
+Some things it can do:
+- CRUD the reviews on the restaurants
+- CRUD the restaurant's attributes
+- Find out the address, reviews, and owner of a given restaurant
 
 # Review Controller
-## GET    
+## GET
 URL <https://jalena-api-project.myshopify.io/api/v1/reviews/1>
 
 RESPONSE 
@@ -13,122 +25,242 @@ RESPONSE
 [
     {
         "id": 1,
-        "title": "best Bakery",
-        "content": "here is some review on something",
-        "date": "2020-03-05T20:58:01.000Z",
-        "author_id": 1,
-        "restaurants": [],
-        "author": {
+        "name": "Super Sushi",
+        "specialty": "Japanese",
+        "owner_id": 1,
+        "address": {
             "id": 1,
-            "name": "Jalena"
+            "street_name": "Jalan M Husni Thamrin 1",
+            "number": 1,
+            "city": "Jakarta Pusat",
+            "province": "Daerah Khusus Ibukota Jakarta",
+            "country": "id",
+            "restaurant_id": 1
+        },
+        "reviews": [],
+        "owner": {
+            "id": 1,
+            "name": "Emma"
         }
     },
     {
         "id": 2,
-        "title": "Hello Halal",
-        "content": " is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknow",
-        "date": "2020-03-05T20:58:01.000Z",
-        "author_id": 2,
-        "restaurants": [],
-        "author": {
+        "name": "Bomb BBQ",
+        "specialty": "Southern",
+        "owner_id": 5,
+        "address": {
             "id": 2,
-            "name": "Johnny"
+            "street_name": "Prinsengracht 267",
+            "number": 2,
+            "city": "Amsterdam",
+            "province": "Noord-Holland",
+            "country": "nl",
+            "restaurant_id": 2
+        },
+        "reviews": [],
+        "owner": {
+            "id": 5,
+            "name": "Sally"
         }
     },
     {
         "id": 3,
-        "title": "nicest server",
-        "content": "printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was po",
-        "date": "2020-03-05T20:58:01.000Z",
-        "author_id": 3,
-        "restaurants": [],
-        "author": {
+        "name": "Tasty Tacos",
+        "specialty": "Mexican",
+        "owner_id": 2,
+        "address": {
             "id": 3,
-            "name": "Chad"
+            "street_name": "1400 S Congress Ave",
+            "number": 3,
+            "city": "Austin",
+            "province": "TX",
+            "country": "US",
+            "restaurant_id": 3
+        },
+        "reviews": [],
+        "owner": {
+            "id": 2,
+            "name": "Lola"
         }
     },
     {
         "id": 4,
-        "title": "best decorations",
-        "content": "roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, look",
-        "date": "2020-03-05T20:58:01.000Z",
-        "author_id": 4,
-        "restaurants": [],
-        "author": {
+        "name": "Perfect Pasta",
+        "specialty": "Italian",
+        "owner_id": 4,
+        "address": {
             "id": 4,
-            "name": "Jeffrey"
+            "street_name": "3667 Las Vegas Blvd S",
+            "number": 4,
+            "city": "Las Vegas",
+            "province": "NV",
+            "country": "US",
+            "restaurant_id": 4
+        },
+        "reviews": [],
+        "owner": {
+            "id": 4,
+            "name": "Dill"
         }
     },
     {
         "id": 5,
-        "title": "yummy baos",
-        "content": "hey hi there's foods here yummy yummy",
-        "date": "2020-03-05T20:58:01.000Z",
-        "author_id": 5,
-        "restaurants": [],
-        "author": {
+        "name": "Notable Noodles",
+        "specialty": "Asian",
+        "owner_id": 3,
+        "address": {
             "id": 5,
-            "name": "Gina"
+            "street_name": "3204 Seawall Blvd",
+            "number": 5,
+            "city": "Galveston",
+            "province": "TX",
+            "country": "US",
+            "restaurant_id": 5
+        },
+        "reviews": [],
+        "owner": {
+            "id": 3,
+            "name": "Brad"
         }
     },
     {
         "id": 6,
-        "title": "bubble gaga",
-        "content": "yummiest coco because there is passionfruit yummy yummy",
-        "date": "2020-03-05T20:58:01.000Z",
-        "author_id": 6,
-        "restaurants": [],
-        "author": {
+        "name": "Mighty Mexican",
+        "specialty": "Asian",
+        "owner_id": 4,
+        "address": {
             "id": 6,
-            "name": "Helen"
+            "street_name": "Skylon Tower",
+            "number": 61,
+            "city": "Niagara Falls",
+            "province": "ON",
+            "country": "CA",
+            "restaurant_id": 6
+        },
+        "reviews": [],
+        "owner": {
+            "id": 4,
+            "name": "Dill"
         }
     },
     {
         "id": 7,
-        "title": "chatime vs coco",
-        "content": "there is coco here in ottawa now new one on the block! ",
-        "date": "2020-03-05T20:58:01.000Z",
-        "author_id": 7,
-        "restaurants": [],
-        "author": {
+        "name": "Hello Halal",
+        "specialty": "Halal",
+        "owner_id": 5,
+        "address": {
             "id": 7,
-            "name": "Raymond"
+            "street_name": "Dinosaur Bar-B-Que",
+            "number": 7,
+            "city": "Syracuse",
+            "province": "NY",
+            "country": "US",
+            "restaurant_id": 7
+        },
+        "reviews": [],
+        "owner": {
+            "id": 5,
+            "name": "Sally"
         }
     },
     {
         "id": 8,
-        "title": "gongfu boa",
-        "content": "gongfu bao is yummy ",
-        "date": "2020-03-05T20:58:01.000Z",
-        "author_id": 8,
-        "restaurants": [],
-        "author": {
+        "name": "Pink Pizza",
+        "specialty": "Italian",
+        "owner_id": 6,
+        "address": {
             "id": 8,
-            "name": "Derek"
+            "street_name": "Shady Maple Smorgasbord",
+            "number": 8,
+            "city": "East Earl",
+            "province": "PA",
+            "country": "US",
+            "restaurant_id": 8
+        },
+        "reviews": [],
+        "owner": {
+            "id": 6,
+            "name": "Billy"
         }
     },
     {
         "id": 9,
-        "title": "panda express",
-        "content": "this ain't authentic",
-        "date": "2020-03-05T20:58:01.000Z",
-        "author_id": 9,
-        "restaurants": [],
-        "author": {
+        "name": "Gonfu Bao",
+        "specialty": "Asian",
+        "owner_id": 7,
+        "address": {
             "id": 9,
-            "name": "Erin"
+            "street_name": "The Ledbury",
+            "number": 9,
+            "city": "Notting Hill",
+            "province": "London",
+            "country": "GB",
+            "restaurant_id": 9
+        },
+        "reviews": [],
+        "owner": {
+            "id": 7,
+            "name": "Dilly"
         }
     },
     {
         "id": 10,
-        "title": "MyString",
-        "content": "MyText",
-        "date": "2020-03-02T11:38:59.000Z",
-        "author_id": 1,
-        "restaurants": [],
-        "author": {
-            "id": 1,
-            "name": "Jalena"
+        "name": "Panda Express",
+        "specialty": "Asian",
+        "owner_id": 8,
+        "address": {
+            "id": 10,
+            "street_name": "Hill Country",
+            "number": 10,
+            "city": "New York",
+            "province": "NY",
+            "country": "US",
+            "restaurant_id": 10
+        },
+        "reviews": [],
+        "owner": {
+            "id": 8,
+            "name": "Dolly"
+        }
+    },
+    {
+        "id": 11,
+        "name": "Coco",
+        "specialty": "Bubble Tea",
+        "owner_id": 9,
+        "address": {
+            "id": 11,
+            "street_name": "Founding Farmers",
+            "number": 11,
+            "city": "Washington",
+            "province": "DC",
+            "country": "US",
+            "restaurant_id": 11
+        },
+        "reviews": [],
+        "owner": {
+            "id": 9,
+            "name": "Joe"
+        }
+    },
+    {
+        "id": 12,
+        "name": "Chatime",
+        "specialty": "Bubble Tea",
+        "owner_id": 10,
+        "address": {
+            "id": 12,
+            "street_name": "Andina",
+            "number": 12,
+            "city": "Portland",
+            "province": "OR",
+            "country": "OR",
+            "restaurant_id": 12
+        },
+        "reviews": [],
+        "owner": {
+            "id": 10,
+            "name": "bob"
         }
     }
 ]
