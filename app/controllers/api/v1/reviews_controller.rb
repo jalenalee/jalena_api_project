@@ -1,6 +1,6 @@
 class Api::V1::ReviewsController < ApplicationController
   def index
-    render json: Review.includes(:restaurants).all
+    render json: Review.all
   end
 
   def show
