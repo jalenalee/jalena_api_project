@@ -1,6 +1,7 @@
 class Api::V1::RestaurantsController < ApplicationController
   def index
-    render json: Restaurant.all
+    @restaurant = Restaurant.includes(:reviews, :owner, :address)
+    render json: @restaurant
   end
 
   def show
