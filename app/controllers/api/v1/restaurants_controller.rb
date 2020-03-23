@@ -1,11 +1,12 @@
 class Api::V1::RestaurantsController < ApplicationController
-  def show
-    @restaurant = Restaurant.find(params[:id])
+  def index
+    @restaurant = Restaurant.includes(:reviews, :owner, :address)
     render json: @restaurant
   end
 
-  def index
-    render json: Restaurant.all
+  def show
+    @restaurant = Restaurant.find(params[:id])
+    render json: @restaurant
   end
 
   def create 
